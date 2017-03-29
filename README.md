@@ -4,7 +4,6 @@ A simple task for Opera;
 This code recived Top 50 posts from Reddit in gaming category  
 
 
-.  
 
 # Features 
 
@@ -17,16 +16,12 @@ It's very srtong Json Parser into POJO(Plain Old Java Object)
 This is quite a handy UI element. Aspecialy notify when data set changes events are too efective methods
 
 
-.  
 
 #	Screen Shots 
-*Splash Screen*
 
-![splash](https://cloud.githubusercontent.com/assets/11025374/24480827/31f23906-14ef-11e7-899e-51f86bc0e747.png)
+| *Splash Screen*      | *List View* |
+| --------- | -----|
+| ![splash](https://cloud.githubusercontent.com/assets/11025374/24480827/31f23906-14ef-11e7-899e-51f86bc0e747.png)  | ![screen](https://cloud.githubusercontent.com/assets/11025374/24480829/35891daa-14ef-11e7-839d-db2dba15e86d.png) |
 
-
-*List View*
-
-![screen](https://cloud.githubusercontent.com/assets/11025374/24480829/35891daa-14ef-11e7-839d-db2dba15e86d.png)
 
 
