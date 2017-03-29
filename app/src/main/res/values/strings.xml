@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Reddit Gaming </string>
+    <string name="title_gaming">Gaming</string>
+    <string name="title_main">Reddit Gaming Top 50</string>
+
+    <string name="entries_reloaded">Entries Reloaded</string>
+
+    <string name="error_try_again">Please try again later</string>
+    <string name="error_please_try_again">Please try again</string>
+
+    <string name="error_cannot_connect_server">Cannot connect server</string>
+    <string name="ok">OK</string>
+</resources>
