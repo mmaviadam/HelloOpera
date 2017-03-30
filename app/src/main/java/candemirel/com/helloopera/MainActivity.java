@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         mApiService = RedditAPIFactory.createAPI();
 
-        FloatingActionButton_Reloading();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.title_main);
         setSupportActionBar(toolbar);
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbar.setCollapsedTitleTypeface(fntRockoFLF);
         collapsingToolbar.setExpandedTitleTypeface(fntRockoFLF);
 
+        FloatingActionButton_Reloading();
         getRedditPosts();
     }
 
