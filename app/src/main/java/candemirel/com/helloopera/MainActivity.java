@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         mReloadButton.startAnimation(anim_reloaded);
     }
 
-    public void ShowToast(int message) {
+    private void ShowToast(int message) {
         if (mToast == null) {
             mToast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
         } else {

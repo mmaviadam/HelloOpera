@@ -3,5 +3,5 @@
     <color name="colorPrimary">#163563</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="floatingButtonColor">#000</color>
+    <color name="color_splash_background">#202e3e</color>
 </resources>

@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_redditentry"
+    android:id="@+id/layout_reddit_list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -19,7 +19,7 @@
         android:layout_toEndOf="@+id/txt_index"
         android:layout_toRightOf="@+id/txt_index"
         android:paddingBottom="5dp"
-        android:text="TextView"
+        android:text="@string/text_holder"
         android:textColor="#000000" />
 
     <TextView
@@ -32,7 +32,7 @@
 
         android:drawableLeft="@drawable/ic_score"
         android:drawablePadding="5dp"
-        android:text="TextView"
+        android:text="@string/text_holder"
         android:textColor="#666666"
         android:textSize="12sp" />
 
@@ -46,7 +46,7 @@
         android:layout_marginRight="10dp"
         android:drawableLeft="@drawable/ic_subreddit"
         android:drawablePadding="5dp"
-        android:text="TextView"
+        android:text="@string/text_holder"
         android:textColor="#666666"
         android:textSize="12sp" />
 

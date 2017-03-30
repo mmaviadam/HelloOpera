@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import candemirel.com.helloopera.model.Child;
 import candemirel.com.helloopera.model.Entry;
@@ -31,7 +33,7 @@ class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditViewHolder>
         mEntries = new ArrayList<>();
     }
 
-    public void setEntries(List<Child> mEntries) {
+    void setEntries(List<Child> mEntries) {
         this.mEntries = mEntries;
     }
 
@@ -47,10 +49,10 @@ class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditViewHolder>
     public void onBindViewHolder(RedditAdapter.RedditViewHolder holder, final int position) {
         Entry dat = mEntries.get(position).getData();
         holder.mTitle.setText(dat.getTitle());
-        holder.mScore.setText(format("%d", dat.getScore()));
+        holder.mScore.setText(NumberFormat.getNumberInstance(Locale.UK).format(dat.getScore())  );
         holder.mSubReddit.setText(dat.getSubreddit());
         holder.mUrl = dat.getUrl();
-        holder.mIndex.setText(format("%02d", position + 1));
+        holder.mIndex.setText(format(Locale.US, "%02d", position + 1));
     }
 
     @Override
@@ -76,7 +78,7 @@ class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditViewHolder>
             mSubReddit = (TextView) v.findViewById(R.id.txt_subreddit);
             mScore = (TextView) v.findViewById(R.id.txt_score);
             mIndex = (TextView) v.findViewById(R.id.txt_index);
-            mLayoutRedditEntry = (RelativeLayout) v.findViewById(R.id.layout_redditentry);
+            mLayoutRedditEntry = (RelativeLayout) v.findViewById(R.id.layout_reddit_list_item);
 
             Typeface fntRobotoMed = Typeface.createFromAsset(
                     mContext.getAssets(), "fonts/Roboto-Medium.ttf");
