@@ -5,7 +5,7 @@ This code recived Top 50 posts from Reddit in gaming category
 
 
 
-# What I used 
+# What I used in this project
 
 #### **RETROFIT**
 * This library is a type-safe REST client for Android.  
