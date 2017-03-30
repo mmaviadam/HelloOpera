@@ -66,14 +66,13 @@ public class MainActivity extends AppCompatActivity {
     private void setReloadButton() {
         final Animation anim_reloading = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_reloading);
         mReloadButton.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View v) {
-                                                 mReloadButton.setClickable(false);
-                                                 mReloadButton.startAnimation(anim_reloading);
-                                                 getRedditPosts();
-                                             }
-                                         }
-        );
+            @Override
+            public void onClick(View v) {
+                mReloadButton.setClickable(false);
+                mReloadButton.startAnimation(anim_reloading);
+                getRedditPosts();
+            }
+        });
     }
 
     private void finalizeGetting() {
