@@ -59,14 +59,27 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbar.setCollapsedTitleTypeface(fntRockoFLF);
         collapsingToolbar.setExpandedTitleTypeface(fntRockoFLF);
 
-        FloatingActionButton_Reloading();
+        setReloadButton();
         getRedditPosts();
     }
 
-    public void Reload() {
-        getRedditPosts();
+    private void setReloadButton() {
+        final Animation anim_reloading = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_reloading);
+        mReloadButton.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View v) {
+                                                 mReloadButton.setClickable(false);
+                                                 mReloadButton.startAnimation(anim_reloading);
+                                                 getRedditPosts();
+                                             }
+                                         }
+        );
+    }
+
+    private void finalizeGetting() {
         mLinearLayoutManager.smoothScrollToPosition(mRecyclerView, null, 0);
-        FloatingActionButton_Reloaded();
+        playReloadedAnim();
+        mReloadButton.setClickable(true);
     }
 
     private void getRedditPosts() {
@@ -86,33 +99,21 @@ public class MainActivity extends AppCompatActivity {
                     if (!isFirst)
                         ShowToast(R.string.entries_reloaded);
                 }
+                finalizeGetting();
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                ShowToast( R.string.error_cannot_connect_server);
                 Log.e(TAG, t.toString());
+                ShowToast(R.string.error_cannot_connect_server);
+                finalizeGetting();
             }
         });
     }
 
-    private void FloatingActionButton_Reloading() {
-        final Animation anim_reloading;
-
-        anim_reloading = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_reloading);
-        mReloadButton.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View v) {
-                                                 mReloadButton.startAnimation(anim_reloading);
-                                                 Reload();
-                                             }
-                                         }
-        );
-    }
-
-    private void FloatingActionButton_Reloaded() {
-        Animation anim_reloaded = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.anim_reloaded);
+    private void playReloadedAnim() {
+        final Animation anim_reloaded;
+        anim_reloaded = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_reloaded);
 
         anim_reloaded.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -132,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ShowToast(int message) {
-        try {
-            mToast.setText(message);
-        } catch (Exception e) {
+        if (mToast == null) {
             mToast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
+        } else {
+            mToast.setText(message);
         }
         mToast.show();
     }
