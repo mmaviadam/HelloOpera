@@ -91,8 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),
-                        R.string.error_cannot_connect_server, Toast.LENGTH_SHORT).show();
+                ShowToast( R.string.error_cannot_connect_server);
                 Log.e(TAG, t.toString());
             }
         });
@@ -135,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void ShowToast(int message) {
         try {
-            mToast.getView().isShown();
             mToast.setText(message);
         } catch (Exception e) {
             mToast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
